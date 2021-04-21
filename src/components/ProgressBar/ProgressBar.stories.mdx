@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import ProgressBar from './ProgressBar';
 
 <Meta
@@ -6,6 +6,7 @@ import ProgressBar from './ProgressBar';
   component={ProgressBar}
   argTypes={{
     value: {
+      description: "The value of progression, between 0 and 100",
       control: {
         type: 'number',
         min: 0,
@@ -25,6 +26,20 @@ export const Template = (args) => <ProgressBar {...args} />;
 
 # ProgressBar
 
-<Story name="Default" args={{ value: 50, size: 'medium' }}>
+A large ProgressBar. This has a padding and the inner bar has rounder corner on left.
+
+<Story name="Large default" args={{ value: 50, size: 'large' }}>
+  {Template.bind({})}
+</Story>
+
+A large ProgressBar at 100% has rounder corner on right side too.
+
+<Story name="Large at 100%" args={{ value: 100, size: 'large' }}>
+  {Template.bind({})}
+</Story>
+
+A small and medium ProgressBar has no rounded corner.
+
+<Story name="Small and Medium" args={{ value: 80, size: 'small' }}>
   {Template.bind({})}
 </Story>
